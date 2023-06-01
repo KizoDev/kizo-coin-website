@@ -1,0 +1,982 @@
+<!DOCTYPE html><html class="loaded" lang="en" data-textdirection="ltr"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+
+    <meta name="description" content="BlackHat - privacy focused cryptocurrency coin">
+    <meta name="keywords" content="Black Hat, decentralized, untraceable, secure, private, payments, blockchain, cryptocurrency, privacy, payment">
+    <meta name="author" content="BlackHat Coin">
+
+    <title>kizo Coin - Privacy focused cryptocurrency</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest?cd90096fe3d00c06b123290b5e3155bb">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        .preload {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            left: 0;
+            background: #453;
+            z-index: 10000;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .preload.vis {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .preload .jump {
+            -webkit-animation: jump 1.5s infinite ease;
+            animation: jump 1.5s infinite ease;
+            position: relative;
+        }
+
+        @-webkit-keyframes jump {
+            0% {
+                top: 0;
+            }
+            50% {
+                top: -40px;
+            }
+            100% {
+                top: 0;
+            }
+        }
+
+        @keyframes jump {
+            0% {
+                top: 0;
+            }
+            50% {
+                top: -40px;
+            }
+            100% {
+                top: 0;
+            }
+        }
+
+        .preload .shadow {
+            width: 150px;
+            height: 15px;
+            background: #535353;
+            position: relative;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            z-index: -1;
+            margin-top: 15px;
+            -webkit-animation: swift 1.5s infinite ease;
+            animation: swift 1.5s infinite ease;
+        }
+
+        @-webkit-keyframes swift {
+            0% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.4;
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes swift {
+            0% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.4;
+                -webkit-transform: scale(0.8);
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+    <link href="css/css.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/style.min.css">
+
+</head>
+<body data-spy="scroll" data-target="#navigation" class="vertical-layout vertical-compact-menu content-detached-right-sidebar menu-expanded fixed-navbar" data-open="click" data-menu="vertical-compact-menu" data-col="content-detached-right-sidebar">
+
+<!-- fixed-top-->
+<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-light navbar-bg-color navbar-shadow" style="opacity: 0.97;">
+    <div class="navbar-wrapper">
+        <div class="navbar-container">
+            <div id="navigation" class="collapse navbar-collapse topnav">
+                <a class="logo" href="/">
+                    <img class="brand-logo" alt src="images/logo.png">
+                </a>
+                <ul class="nav navbar-nav navleft mr-auto float-left">
+                    <li>
+                        <a id="link_home" class="menu menu_scroll inactive" href="#section_1">
+                            <svg class="menu-icon">
+                                <use xlink:href="fonts/sprite.svg#icon-home"/>
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a id="link_features" class="menu menu_ref menu_scroll inactive" href="#section_2">
+                            <svg class="menu-icon">
+                                <use xlink:href="fonts/sprite.svg#icon-star"/>
+                            </svg>
+                            Features
+                        </a>
+                    </li>
+                    <li>
+                        <a id="link_roadmap" class="menu menu_scroll inactive" href="#section_3">
+                            <svg class="menu-icon">
+                                <use xlink:href="fonts/sprite.svg#icon-marker"/>
+                            </svg>
+                            Roadmap
+                        </a>
+                    </li>
+                    <li>
+                        <a id="link_specs" class="menu menu_scroll inactive" href="#section_4">
+                            <svg class="menu-icon">
+                                <use xlink:href="fonts/sprite.svg#icon-cog"/>
+                            </svg>
+                            Coin Specs
+                        </a>
+                    </li>
+                    <li>
+                        <a id="link_wallet" class="menu inactive" href="/wallets">
+                            <svg class="menu-icon">
+                                <use xlink:href="fonts/sprite.svg#icon-wallet"/>
+                            </svg>
+                            Wallet
+                        </a>
+                    </li>
+                    <li>
+                        <a id="link_exchanges" class="menu active" href="/exchanges">
+                            <svg class="menu-icon">
+                                <use xlink:href="fonts/sprite.svg#icon-sync"/>
+                            </svg>
+                            Exchanges
+                        </a>
+                    </li>
+                    <li class="menu_parent">
+                        <div class="menu-sub">
+                            <svg class="menu-icon">
+                                <use xlink:href="fonts/sprite.svg#icon-arrow-circle-down"/>
+                            </svg>
+                            Resources
+                        </div>
+                        <ul class="menu-subnav">
+                            <li class="menu-subnav__item"><a class="menu-subnav__link inactive" target="_blank" href="https://explorer.blackhatco.in">Block Explorer</a></li>
+                            <li class="menu-subnav__item"><a class="menu-subnav__link inactive" target="_blank" href="https://forum.blackhatco.in">Forum</a></li>
+                            <li class="menu-subnav__item"><a class="menu-subnav__link inactive" target="_blank" href="/services">Services</a></li>
+                            <li class="menu-subnav__item"><a class="menu-subnav__link inactive" target="_blank" href="https://otc.blackhatco.in">OTC Exchange</a></li>
+                            <li class="menu-subnav__item"><a class="menu-subnav__link inactive" target="_blank" href="https://merchant.blackhatco.in">Merchant system</a></li>
+                            <li class="menu-subnav__item"><a class="menu-subnav__link inactive" target="_blank" href="https://mnm.blackhatco.in">Masternode Monitoring Service</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navright float-right">
+                    <li class="nav-item hambu">
+                        <div id="nav-icon4">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--end fixed-top-->
+
+<div class="app-content content">
+    <div class="preload">
+        <img class="jump" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABZAAD/4QMvaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0NSA3OS4xNjM0OTksIDIwMTgvMDgvMTMtMTY6NDA6MjIgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE5IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDMzRFODVGQzJBQzYxMUVDOTI1NUZDRURBRTVDN0IzMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDMzRFODVGRDJBQzYxMUVDOTI1NUZDRURBRTVDN0IzMiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkMzNEU4NUZBMkFDNjExRUM5MjU1RkNFREFFNUM3QjMyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkMzNEU4NUZCMkFDNjExRUM5MjU1RkNFREFFNUM3QjMyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQAAQEBAQEBAQEBAQIBAQEC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" alt>
+        <div class="shadow"></div>
+    </div>
+    <!--block to reload-->
+    <div class="content-wrapper">
+        <div id="section_1" class="article intro">
+            <div class="intro__text">
+                <h1>Kizo Coin</h1>
+                <h2>Private, secure, fast and available for everyone</h2>
+                <h3>Privacy focused decentralized cryptocurrency providing truly anonymous untraceable transactions
+                    based on PoS consensus and <span class="nobrake">zk-SNARKs</span> data protection protocol (Zero&nbsp;Knowledge&nbsp;Proof)</h3>
+            </div>
+            <div class="intro__action">
+                <a href="/exchanges" class="btn btn_wallet btn_flash btn_flash_1">
+                    <svg class="btn-icon">
+                        <use xlink:href="fonts/sprite.svg#icon-backet"/>
+                    </svg>
+                    Buy Coins
+                </a>
+                <a href="/resources/whitepaper.pdf?v092" target="_blank" class="btn btn_flash btn_flash_2">
+                    <svg class="btn-icon">
+                        <use xlink:href="fonts/sprite.svg#icon-file"/>
+                    </svg>
+                    White Paper
+                </a>
+                <a href="/wallets" class="btn btn_wallet btn_flash btn_flash_3">
+                    <svg class="btn-icon">
+                        <use xlink:href="fonts/sprite.svg#icon-wallet"/>
+                    </svg>
+                    Get Wallet
+                </a>
+            </div>
+            <div class="intro__soc">
+                <a href="https://twitter.com/blkcoin" target="_blank">
+                    <svg class="soc-icon">
+                        <use xlink:href="fonts/sprite.svg#icon-tw"/>
+                    </svg>
+                </a>
+                <a href="https://t.me/BlackHatCoin" target="_blank">
+                    <svg class="soc-icon">
+                        <use xlink:href="fonts/sprite.svg#icon-tele"/>
+                    </svg>
+                </a>
+                <a href="https://blackhatco.in/discord" target="_blank">
+                    <svg class="soc-icon">
+                        <use xlink:href="fonts/sprite.svg#icon-discord"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/blackhatcoin" target="_blank">
+                    <svg class="soc-icon">
+                        <use xlink:href="fonts/sprite.svg#icon-instagram"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/BlackHatCoin" target="_blank">
+                    <svg class="soc-icon">
+                        <use xlink:href="fonts/sprite.svg#icon-git"/>
+                    </svg>
+                </a>
+            </div>
+            <img src="fonts/bg.svg" alt>
+        </div>
+        <div class="subsection">
+            <img src="images/edvsnow.png" alt>
+            <h4>
+                <i>
+                    “Arguing that you don't care about the right to privacy because you have nothing to hide is no different
+                    than saying you don't care about free speech because you have nothing to say.”
+                </i>
+                <span>—&nbsp;Edward Snowden</span>
+            </h4>
+
+        </div>
+        <div id="section_2" class="article features">
+            <h2 class="article__title">features</h2>
+            <div class="features__head">
+                <div class="features__head-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-leaf"/>
+                    </svg>
+                    Energy saving (PoS)
+                </div>
+                <div class="features__head-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-user-secret"/>
+                    </svg>
+                    High privacy level (zk-SNARK)
+                </div>
+                <div class="features__head-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-coin"/>
+                    </svg>
+                    Low fees
+                </div>
+                <div class="features__head-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-tachometer-fast"/>
+                    </svg>
+                    Fast transactions
+                </div>
+                <div class="features__head-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-vote-yea"/>
+                    </svg>
+                    Governance / DAO
+                </div>
+                <div class="features__head-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-users"/>
+                    </svg>
+                    Community driven
+                </div>
+            </div>
+            <div class="features__list">
+                <div class="features__list-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-shield-check"/>
+                    </svg>
+                    <div class="features__list-desc">
+                        <h4>Secure anonymous payments</h4>
+                        <p>The privacy layer of BlackHat coin implemented on zk-SNARK Sapling protocol by Electric Coin
+                        Company (ZCash) which provides fast, anonymous and untraceable payments with Zero Knowledge
+                        Proof without revealing your transaction amounts and balance to anyone</p>
+                    </div>
+                </div>
+                <div class="features__list-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-chart-network"/>
+                    </svg>
+                    <div class="features__list-desc">
+                        <h4>Proof Of Stake&nbsp;—&nbsp;Staking</h4>
+                        <p>Running your wallet and keeping coins in it you automatically participate in the blocks and
+                            transactions validation process which allows you not only receive rewards, but also
+                            strengthen
+                            the network.
+                        </p>
+                        <p>Proof of Stake is available for everyone and it doesn't require any specialized mining equipment
+                        with high energy consumption, so you are able use your home computer/laptop and even ARM based
+                        microcomputers such as Raspberry PI</p>
+                    </div>
+                </div>
+                <div class="features__list-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-alarm-clock"/>
+                    </svg>
+                    <div class="features__list-desc">
+                        <h4>Cold Staking</h4>
+                        <p class="ul-title">Like usual staking but with some features:</p>
+                        <ul>
+                            <li>you can delegate your coins for staking to another wallet which is switched on 24/7&nbsp;(hot wallet)</li>
+                            <li>hot wallet stakes delegated coins on your behalf but have no access to them</li>
+                            <li>the rewards go directly to your wallet</li>
+                            <li>all coins remain under your full control in your wallet which could be switched off keeping your
+                                private keys and coins safe while hot wallet stakes coins for you</li>
+                            <li>it's possible to delegate coins from different multiple wallets to one hot wallet for cold staking</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="features__list-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-network-wired"/>
+                    </svg>
+                    <div class="features__list-desc">
+                        <h4>Masternodes</h4>
+                        <p>Masternodes is the second layer of network security which provides additional blocks and
+                        transactions validation.</p>
+                        <p>Starting your own masternode you're also strengthen the network and
+                        receiving rewards.</p>
+                        <p>Anyone who started masternode can participate in Decentralized Governance
+                        voting for the proposals to determine if the proposal should be funded.</p>
+                        <p>This voting is
+                        decentralized and anonymous, since the owners and their masternodes are located in different
+                        parts of the world</p>
+                    </div>
+                </div>
+                <div class="features__list-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-clipboard-list-check"/>
+                    </svg>
+                    <div class="features__list-desc">
+                        <h4>Decentralized Governance</h4>
+                        <p>Decentralized Governance is the system of proposals which is submitted to the blockchain network
+                        to be voted by masternodes to determine if the proposal should be funded.</p>
+                        <p>Each started
+                        masternode is capable to vote for each proposal (a vote per masternode for each active proposal)
+                        thereby setting the vector of network development.</p>
+                        <p>Therefore, only community-validated
+                        initiatives will be funded</p>
+                    </div>
+                </div>
+                <div class="features__list-item card">
+                    <svg>
+                        <use xlink:href="fonts/sprite.svg#icon-treasure-chest"/>
+                    </svg>
+                    <div class="features__list-desc">
+                        <h4>BlackHat Community Treasury</h4>
+                        <p>A small amount in excess of the block reward will be potentially allocated for the Community.</p>
+                        <p>Treasury to fund an implementation of proposals that received sufficient&nbsp;% of Yes votes from
+                        masternode holders.</p>
+                        <p>This funds will be generated at each superblock (approx.&nbsp;each month).</p>
+                        <p><b>Note:</b> The budget will not be allocated each month in full. Only valid proposals will be funded
+                        and only required amount of coins will be generated</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="section_3" class="article roadmap">
+            <h2 class="article__title">Roadmap</h2>
+            <div class="slider-wrap">
+                <div class="slider slider-nav slick-initialized slick-slider"><div type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" aria-disabled="false" style="display: block;"></div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                <div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1200px; left: -1000px;" role="listbox"><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide10" data-slick-index="0" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2020</span>
+                            <b>Q4</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide11" data-slick-index="1" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2021</span>
+                            <b>Q1</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide12" data-slick-index="2" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2021</span>
+                            <b>Q2</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide13" data-slick-index="3" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2021</span>
+                            <b>Q3</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide14" data-slick-index="4" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2021</span>
+                            <b>Q4</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide15" data-slick-index="5" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2022</span>
+                            <b>Q1</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide16" data-slick-index="6" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2022</span>
+                            <b>Q2</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide17" data-slick-index="7" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2022</span>
+                            <b>Q3</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide18" data-slick-index="8" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2022</span>
+                            <b>Q4</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide19" data-slick-index="9" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2023</span>
+                            <b>Q1</b>
+                        </div>
+                    </div><div class="slick-slide slick-current slick-active" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide110" data-slick-index="10" aria-hidden="false">
+                        <div class="tm-green-year">
+                            <span>2023</span>
+                            <b>Q2</b>
+                        </div>
+                    </div><div class="slick-slide" style="width: 100px;" tabindex="-1" role="option" aria-describedby="slick-slide111" data-slick-index="11" aria-hidden="true">
+                        <div class="tm-green-year">
+                            <span>2023</span>
+                            <b>Future</b>
+                        </div>
+                    </div></div></div><div type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style aria-disabled="false"></div></div>
+                <ul>
+                    <li>ready</li>
+                    <li>in progress</li>
+                    <li>planned</li>
+                </ul>
+            </div>
+            <div class="slider slider-for card slick-initialized slick-slider">
+                <div aria-live="polite" class="slick-list draggable" style="height: 363.781px;"><div class="slick-track" style="opacity: 1; width: 8184px;" role="listbox"><div class="slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 682px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2020&nbsp;–&nbsp;Q4
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">Project development has been started. Research and development of the idea, the core team formation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 682px; position: relative; left: -682px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2021&nbsp;–&nbsp;Q1
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">Core team meetings, goal setting, basic upcoming steps planning</p>
+                                    <p class="road road_1">Building the core infrastructure for the development</p>
+                                    <p class="road road_1">Referral program planning, ToS elaboration</p>
+                                    <p class="road road_1">Development of the portal for referral program and coin presale (fair.blackhatco.in)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 682px; position: relative; left: -1364px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2021&nbsp;–&nbsp;Q2
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">Referral program and coin presale start (1st of April)</p>
+                                    <p class="road road_1">Finalization the blockchain and BlackHat Core Wallet software</p>
+                                    <p class="road road_1">Deployment preparations, setting up all the required infrastructure</p>
+                                    <p class="road road_1">Test network launch, performance check</p>
+                                    <p class="road road_1">Start the blockchain in production mode, <a href="https://github.com/BlackHatCoin/BlackHatWallet/" target="_blank" class="alert-link text-white" tabindex="-1">BlackHat Core Wallet</a> release</p>
+                                    <p class="road road_1">Website release</p>
+                                    <p class="road road_1">Referral and presale coins withdrawal is available on <a href="https://fair.blackhatco.in" target="_blank" class="alert-link text-white" tabindex="-1">fair.blackhatco.in</a></p>
+                                    <p class="road road_1"><a href="https://wallet.blackhatco.in" target="_blank" class="alert-link text-white" tabindex="-1">Web Wallet</a> release</p>
+                                    <p class="road road_1">Exchanges listing (<a href="https://blackhatco.in/exchanges" target="_blank" class="alert-link text-white" tabindex="-1">dex-trade.com</a>)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide03" style="width: 682px; position: relative; left: -2046px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2021&nbsp;–&nbsp;Q3
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">New version of BlackHat Core wallet release 5.2.0.1 (for Cold Staking feature activation)</p>
+                                    <p class="road road_1">Cold Staking activation on block 114000</p>
+                                    <p class="road road_1">Finalization of the referral program coins withdrawal (fair.blackhatco.in will be active until 1st August 2021)</p>
+                                    <p class="road road_1"><a href="https://t.me/blackhatwalletbot" target="_blank" class="alert-link text-white" tabindex="-1">Mobile (Telegram) Wallet</a> release</p>
+                                    <p class="road road_1">Exchange listing (<a href="https://blackhatco.in/exchanges" target="_blank" class="alert-link text-white" tabindex="-1">bilaxy.com</a>)</p>
+                                    <p class="road road_1">Restructuring of the BlackHat Project website</p>
+                                    <p class="road road_1"><a href="https://explorer.blackhatco.in/governance" target="_blank" class="alert-link text-white" tabindex="-1">Decentralized Governance</a> development (within official Block Explorer)</p>
+                                    <p class="road road_1">Staking support for Web/Mobile Wallet (shared staking pool implementation)</p>
+                                    <p class="road road_1">BlackHat Core Wallet release 5.3.0</p>
+                                    <p class="road road_1">New protocol enforcement in the BlackHat network (on block 202000, ~&nbsp;22nd of September 2021)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide04" style="width: 682px; position: relative; left: -2728px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2021&nbsp;–&nbsp;Q4
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">Updating all the project's server infrastructure (update OS, software, security patches, etc.)</p>
+                                    <p class="road road_1">New exchange listing (<a href="https://blackhatco.in/exchanges" target="_blank" class="alert-link text-white" tabindex="-1">TradeOgre.com</a>, <a href="https://blackhatco.in/exchanges" target="_blank" class="alert-link text-white" tabindex="-1">Graviex.net</a>)</p>
+                                    <p class="road road_1">Official automatic <a href="https://otc.blackhatco.in" target="_blank" class="alert-link text-white" tabindex="-1">OTC</a> trading platform implementation (no KYC at all)</p>
+                                    <p class="road road_1">BlackHat Merchant Payment Processing System development (will be continued, see 2022-Q1)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="5" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide05" style="width: 682px; position: relative; left: -3410px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2022&nbsp;–&nbsp;Q1
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">Checks issuing and redeeming functionality for Web and Mobile wallets</p>
+                                    <p class="road road_1">BlackHat Merchant Payment Processing System implementation</p>
+                                    <p class="road road_1">AMA with XT.com community before the listing</p>
+                                    <p class="road road_1">Exchange listing <a href="https://xt.com" target="_blank" class="alert-link text-white" tabindex="-1">XT.com</a></p>
+                                    <p class="road road_1">Coin Burn event: On February 15th, 150000 BLKC is burnt and taken out of the circulation supply (<a href="https://explorer.blackhatco.in/tx/227eaae4091addaf76d1d3679f3b6d3be00806f28186f9479fc067e7763d263b" class="alert-link text-white" tabindex="-1" target="_blank">Burning TX</a>)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide06" style="width: 682px; position: relative; left: -4092px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2022&nbsp;–&nbsp;Q2
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">BlackHat <a href="https://merchant.blackhatco.in" target="_blank" class="alert-link text-white" tabindex="-1">Merchant Payment Processing System</a> release</p>
+                                    <p class="road road_1">Free and easy to use <a href="https://mnm.blackhatco.in" target="_blank" class="alert-link text-white" tabindex="-1">MasterNode monitoring system</a> for BlackHat masternode owners (see in Resources top menu)</p>
+                                    <p class="road road_1">New DEX listings (<a href="https://pancakeswap.finance/swap" target="_blank" class="alert-link text-white" tabindex="-1">Pancake Swap</a>, <a href="https://app.sushi.com/swap" target="_blank" class="alert-link text-white" tabindex="-1">Sushi Swap</a>, <a href="https://app.1inch.io/#/56/swap" target="_blank" class="alert-link text-white" tabindex="-1">1inch</a>, <a href="https://yieldfields.finance/swap" target="_blank" class="alert-link text-white" tabindex="-1">YieldFields</a>)</p>
+                                    <p class="road road_1">Second Coin Burning event: 200 000 BLKC on May 25th, 2022 (<a href="https://explorer.blackhatco.in/tx/18126a7760bf2279f00013634320f3063cdb027ba298883218cc380ed00b1f13" class="alert-link text-white" tabindex="-1" target="_blank">Burning TX</a>)</p>
+                                    <p class="road road_1">Building a bridge to Binance Smart Chain network as BEP20 token (exchange BLKC-&gt;token-&gt;BLKC is available on <a href="https://otc.blackhatco.in" target="_blank" class="alert-link text-white" tabindex="-1">OTC</a>)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide07" style="width: 682px; position: relative; left: -4774px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2022&nbsp;–&nbsp;Q3
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">Building a bridge to Ethereum network as ERC20 token</p>
+                                    <p class="road road_1">Implementing a fiat currencies gateway to <a href="https://otc.blackhatco.in" target="_blank" class="alert-link text-white" tabindex="-1">OTC</a></p>
+                                    <p class="road road_1">Third Coin burning event: 200 000 BLKC on August 24th, 2022 (<a href="https://explorer.blackhatco.in/tx/896ad99aec266c4b09f12172caf53a562d3b59760ab2e1ac000a19a6e4e6e06a" class="alert-link text-white" tabindex="-1" target="_blank">Burning TX</a>)</p>
+                                    <p class="road road_1">DEX listing: <a href="https://app.uniswap.org/#/swap" target="_blank" class="alert-link text-white" tabindex="-1">UniSwap</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide08" style="width: 682px; position: relative; left: -5456px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2022&nbsp;–&nbsp;Q4
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">Listing a trading pair on XT.com <a href="https://www.xt.com/trade/blkc_usdt" class="alert-link text-white" tabindex="-1" target="_blank">BLKC/USDT</a></p>
+                                    <p class="road road_1">New partnership with masternode hosting service <a href="https://higlan.com" class="alert-link text-white" tabindex="-1" target="_blank">higlan.com</a></p>
+                                    <p class="road road_1">Internal security audit (update all servers, software, etc.)</p>
+                                    <p class="road road_1">Fourth Coin burning event: 250 000 BLKC on December 15th, 2022 (<a href="https://explorer.blackhatco.in/tx/a2cd18d570764adc3a32a5d998472a4065854364a3cc304a3c0d7db839ac0de3" class="alert-link text-white" tabindex="-1" target="_blank">Burning TX</a>)</p>
+                                    <p class="road road_1">Due to crypto-winter, the team puts more effort to making new partnerships, searching for additional investments. A number of planned network upgrades and developments have been postponed to the next year</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="9" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide09" style="width: 682px; position: relative; left: -6138px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2023&nbsp;–&nbsp;Q1
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">BlackHat Core Wallet 5.5 release</p>
+                                    <p class="road road_1">Listing on <a href="https://bdexhub.com" target="_blank" class="alert-link text-white" tabindex="-1">bdexhub.com</a> exchange</p>
+                                    <p class="road road_1">Building a bridge for BLKC coin to be tokenized on Polygon network</p>
+                                    <p class="road road_1">Exploring new exchanges/DEX for listing: <a href="https://quickswap.exchange/#/swap" target="_blank" class="alert-link text-white" tabindex="-1">QuickSwap</a></p>
+                                    <p class="road road_1">Fifth Coin burning event: 200 000 BLKC to be burned on 15th of February 2023 (<a href="https://explorer.blackhatco.in/tx/0d84ed564cb6ce4f848d8dc7d822ddd42753a11fc99db635dff03e4f21f9aacc" class="alert-link text-white" tabindex="-1" target="_blank">Burning TX</a>)</p>
+                                    <p class="road road_1">According to user requests we are researching the ways to make deposits of USD to our <a href="https://otc.blackhatco.in" target="_blank" class="alert-link text-white" tabindex="-1">official OTC platform</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide slick-current slick-active" data-slick-index="10" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide010" style="width: 682px; position: relative; left: -6820px; top: 0px; z-index: 999; opacity: 1;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2023&nbsp;–&nbsp;Q2
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_1">Building a bridge for BLKC coin to be tokenized on Arbitrum One network</p>
+                                    <p class="road road_1">Exploring new exchanges/DEX for listing (UniSwap on Arbitrum One)</p>
+                                    <p class="road road_1">Sixth Coin burning event: 250 000 BLKC to be burned on 17th of May 2023 (<a href="https://explorer.blackhatco.in/tx/58475b04ed915488b8cbdada5bb3b40c26c28b7392b52f22b6c21e6fefaa7ddb" class="alert-link text-white" tabindex="0" target="_blank">Burning TX</a>)</p>
+                                    <p class="road road_2">Regular internal security audit (update all servers, software, ecosystem etc.)</p>
+                                    <p class="road road_2">Exploring the prospect of BlackHat ecosystem expanding through gamification and gambling areas</p>
+                                    <p class="road road_3">AMA with the core team representatives</p>
+                                    <p class="road road_3">Event dedicated to the launch of 1000 masternodes in BlackHat Network (if 1000 masternodes are not reached, it will be rolled over to the next quarter)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><div class="slick-slide" data-slick-index="11" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide011" style="width: 682px; position: relative; left: -7502px; top: 0px; z-index: 998; opacity: 0;">
+                    <div class="tm-green-roadmap-text">
+                        <div class="tm-green-roadmap-text-in">
+                            <div class="tm-gr-single-text">
+                                <div class="tm-gr-yr">
+                                    2023&nbsp;–&nbsp;Future plans
+                                    <span class="tm-gr-ball"></span>
+                                </div>
+                                <div class="tm-gr-text">
+                                    <p class="road road_3">Online merch shop release (as a demonstration of Merchant System)</p>
+                                    <p class="road road_3">BlackHat Faucet development and release (free BLKC for everyone!)</p>
+                                    <p class="road road_3">Moving to Deterministic masternodes (huge network upgrade)</p>
+                                    <p class="road road_3">NFT</p>
+                                    <p class="road road_3">Global charity project in BlackHat ecosystem</p>
+                                    <p class="road road_3">Exchange listings</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </div>
+        </div>
+        <div id="section_4" class="article specs">
+            <h2 class="article__title">Specifications</h2>
+            <div class="specs__wrap">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title text-center">COIN SPECS</h6>
+                    </div>
+                    <div class="card-body">
+                        <table>
+                            <tbody><tr>
+                                <td>Consensus:</td>
+                                <td>PoS <span class="mark_min">(Hot&nbsp;&amp;&nbsp;Cold&nbsp;PoS)</span></td>
+                            </tr>
+                            <tr>
+                                <td>Total supply:</td>
+                                <td>21m <span class="mark_min">(premine&nbsp;1m, which is approx.&nbsp;4.7%)</span></td>
+                            </tr>
+                            <tr>
+                                <td>Block Time:</td>
+                                <td>~&nbsp;1&nbsp;<span class="mark_min">minute</span></td>
+                            </tr>
+                            <tr>
+                                <td>Block Size:</td>
+                                <td>2MB&nbsp;<span class="mark_min">max</span></td>
+                            </tr>
+                            <tr>
+                                <td>Transactions per second:</td>
+                                <td>173&nbsp;TPS <span class="mark_min">(theoretical&nbsp;maximum)</span></td>
+                            </tr>
+                            <tr>
+                                <td>Master Node Collateral:</td>
+                                <td>5000&nbsp;<span class="mark_min">BLKC</span></td>
+                            </tr>
+                        </tbody></table>      
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title text-center">BLOCK REWARDS</h6>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>4.19 BLKC (40%&nbsp;PoS&nbsp;/&nbsp;60%&nbsp;MN)&nbsp;+ (potential allocation for Community Treasury).<br>
+                                See <a href="/resources/whitepaper.pdf?v091" target="_blank">White Paper</a> for details</li>
+                            <li>Block reward will be decreased every 3 months by 20% (about ~&nbsp;50%&nbsp;yearly)</li>
+                            <li>Minimal block reward 2 BLKC (approx.&nbsp;in&nbsp; less than &nbsp;a&nbsp;year)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="section_5" class="article wallet">
+            <h2 class="article__title">
+                <span>Wallets</span>
+                <a href="/wallets">Click to see All Wallets</a>
+            </h2>
+            <div class="wallet__wrap">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title text-center">
+                            <svg>
+                                <use xlink:href="fonts/sprite.svg#icon-windows"/>
+                            </svg>
+                            Windows
+                            <span>Windows 7 (64bit) or later</span>
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="wallet__sub">Stable Release</div>
+                        <div class="wallet__inner">
+                            <div class="wallet__install">
+                                <ul>
+                                    <li><a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0-win64-setup-unsigned.exe">Installer</a></li>
+                                    <li><a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0-win64.zip">Archived</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title text-center">
+                            <svg>
+                                <use xlink:href="fonts/sprite.svg#icon-linux"/>
+                            </svg>
+                            <div>Linux</div>
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="wallet__sub">Stable Release</div>
+                        <div class="wallet__inner">
+                            <div class="wallet__install">
+                                <ul>
+                                    <li>
+                                        <span style="font-size: 12px;">ARM:</span>
+                                        <a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0-arm-linux-gnueabihf.tar.gz">32bit</a>
+                                        <a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0-aarch64-linux-gnu.tar.gz">64bit</a>
+                                    </li>
+                                    <li><span>X86:</span>
+                                        <a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0-i686-pc-linux-gnu.tar.gz">32bit</a>
+                                        <a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0-x86_64-linux-gnu.tar.gz">64bit</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title text-center">
+                            <svg>
+                                <use xlink:href="fonts/sprite.svg#icon-apple"/>
+                            </svg>
+                            macOS
+                            <span>macOS 10.10 or later</span>
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="wallet__sub">Stable Release</div>
+                        <div class="wallet__inner">
+                            <div class="wallet__install">
+                                <ul>
+                                    <li><a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0-osx.dmg">Installer</a></li>
+                                    <li><a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0-osx64.tar.gz">Archived</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title text-center">
+                            <svg>
+                                <use xlink:href="fonts/sprite.svg#icon-terminal"/>
+                            </svg>
+                            Source Code
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="wallet__sub">Stable Release</div>
+                        <div class="wallet__inner">
+                            <div class="wallet__install">
+                                <ul>
+                                    <li><a href="https://github.com/BlackHatCoin/BlackHatWallet/releases/download/v5.5.0/blackhat-5.5.0.tar.gz">Archived</a></li>
+                                    <li><a href="https://github.com/BlackHatCoin/BlackHatWallet" target="_blank">GitHub</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="section_6" class="article exchanges">
+            <h2 class="article__title">
+                <span>Exchanges</span>
+                <a href="/exchanges">Click to see All Exchanges</a>
+            </h2>
+            <div class="exchanges__wrap">
+                <a href="https://tradeogre.com" target="_blank"><img src="fonts/logo-tradeogre.svg" alt></a>
+                <a href="https://xt.com" target="_blank"><img src="fonts/logo-xt.svg" alt></a>
+                <a href="https://graviex.net" target="_blank"><img src="fonts/logo-graviex.svg" alt></a>
+                <a href="https://dex-trade.com" target="_blank"><img src="fonts/logo-dex-trade.svg" alt></a>
+                <a href="https://bdexhub.com" target="_blank"><img src="images/logo-bdexhub.png" alt></a>
+                <a href="https://pancakeswap.finance/swap" target="_blank"><img src="fonts/logo-pancakeswap.svg" alt></a>
+                <a href="https://app.sushi.com/swap" target="_blank"><img src="fonts/logo-sushiswap.svg" alt></a>
+                <a href="https://app.1inch.io/#/56/swap" target="_blank"><img src="fonts/logo-1inch.svg" alt></a>
+                <a href="https://app.uniswap.org/#/swap" target="_blank"><img src="fonts/logo-uniswap.svg" alt></a>
+                <a href="https://quickswap.exchange/#/swap" target="_blank"><img src="images/logo-quickswap.png" alt></a>
+            </div>
+        </div>
+        <div id="section_7" class="article exchanges">
+            <h2 class="article__title">
+                <span>Services</span>
+                <p>(Masternode hosting, etc.)</p>
+                <a href="/services">Click to see All Services</a>
+            </h2>
+
+            <div class="exchanges__wrap">
+                <a href="https://masternodes.biz/cryptocurrency/BLKC" target="_blank"><img src="images/service_mnbiz.png" alt></a>
+                <a href="https://crypos.io/" target="_blank"><img src="images/service_crypos.png" alt></a>
+                <a href="https://ihostmn.com/" target="_blank"><img src="images/service_ihostmn.png" alt></a>
+                <a href="https://higlan.com/" target="_blank"><img src="fonts/service_higlan.svg" alt></a>
+            </div>
+        </div>
+        <div class="article exchanges">
+            <h2 class="article__title">
+                <span>BlackHat in Mass Media</span>
+                <p>(Articles, reviews, etc.)</p>
+            </h2>
+
+            <div class="exchanges__wrap">
+                <a href="https://cointelegraph.com/search?query=BlackHat%2520Coin" target="_blank"><img src="fonts/mm_cointelegraph.svg" alt></a>
+                <a href="https://www.newsbtc.com/?s=blackhatco.in" target="_blank"><img src="images/mm_newsbtc.png" alt></a>
+                <a href="https://ambcrypto.com/?s=blackhat" target="_blank"><img src="images/mm_ambcrypto.png" alt></a>
+                <a href="https://bitcoinist.com/?s=blackhatco.in" target="_blank"><img src="images/mm_bitcoinist.png" alt></a>
+                <a href="https://cryptoholics.com/cryptocurrency/blackhat" target="_blank"><img src="fonts/mm_cryptoholics.svg" alt></a>
+            </div>
+        </div>
+    </div>
+    <!--end block to reload-->
+
+</div>
+
+
+<footer class="footer footer-static footer-transparent text-center" style="margin-top: 100px;">
+    <a href="https://coinmarketcap.com/currencies/blackhat/" target="_blank">
+        <img src="fonts/coinmarketcap_white.svg">
+    </a>
+    <a href="https://www.coingecko.com/en/coins/blackhat-coin" target="_blank">
+        <img src="fonts/CoinGecko-WhiteText.svg"></a>
+    <div>
+    <a href="https://cryptorank.io/price/blackhat" target="_blank">
+        <img src="fonts/cryptorank.svg"></a>
+    <div>
+        Copyright&nbsp;©&nbsp;2021-<span id="cyear">2023</span>&nbsp;<a class="link" href="https://blackhatco.in/">BlackHat Coin</a>
+    </div>
+</div></footer>
+
+<script src="js/1jquery.min.js"></script>
+<script src="js/app-menu.min.js"></script>
+<script src="js/app.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/click-scroll.js"></script>
+<script src="js/jquery.app.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/custom.js"></script>
+
+
+</body></html>
